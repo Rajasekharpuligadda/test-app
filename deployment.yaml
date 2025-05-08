@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${{ values.appName }}
+  name: spring-boot-app4
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ${{ values.appName }}
+      app: spring-boot-app4
   template:
     metadata:
       labels:
-        app: ${{ values.appName }}
+        app: spring-boot-app4
     spec:
       imagePullSecrets:
         - name: harbor-eks-cred 
       containers:
-      - name: ${{ values.appName }}
-        image: imagerepo.vaw.ai/backstage/${{ values.imagename }}:latest 
+      - name: spring-boot-app4
+        image: imagerepo.vaw.ai/backstage/spring-boot-app4:latest 
         imagePullPolicy: Always
         ports:
-        - containerPort: 8090
+        - containerPort: 9090
         env:
         - name: SERVER_PORT
-          value: "8090"  # Change application port
+          value: "9090"  # Change application port

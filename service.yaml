@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${{ values.appName }}
+  name: spring-boot-app4
 spec:
   type: ClusterIP
   selector:
-    app: ${{ values.appName }}
+    app: spring-boot-app4
   ports:
     - protocol: TCP
-      targetPort: 8090  
+      targetPort: 9090  # Map Kubernetes service to container's port 9090
